@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.3.0...v1.4.0) (2026-09-13)
+
+
+### Features
+
+* hapus title File List + toolbar (path + up + upload), buang .. row ([101f4dd](https://github.com/Banten-IT-Solutions/BITS-FileManager/commit/101f4ddd81371fb32227aca46c11dbf5b249ecb4))
+
 # [1.3.0](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.2.3...v1.3.0) (2026-09-13)
 
 
