@@ -1,5 +1,5 @@
 Package: luci-app-bitsfilemanager
-Version: 1.2.2
+Version: 1.2.3
 Depends: luci-base, rpcd, rpcd-mod-file, cgi-io, libc
 Section: luci
 Architecture: all

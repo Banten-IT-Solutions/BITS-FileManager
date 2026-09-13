@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.2.2...v1.2.3) (2026-09-13)
+
+
+### Bug Fixes
+
+* navigasi .. ke parent benar + klik arrow svg (getFileElem getAttribute) ([7988118](https://github.com/Banten-IT-Solutions/BITS-FileManager/commit/7988118a3838f76c1a046f70b3d56d685bbcab02))
+
 ## [1.2.2](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.2.1...v1.2.2) (2026-09-13)
 
 
