@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.1.6...v1.2.0) (2026-09-13)
+
+
+### Features
+
+* klik file = edit (modal textarea + read/save endpoint) ([f49a4b2](https://github.com/Banten-IT-Solutions/BITS-FileManager/commit/f49a4b284f914ae16ee0aedbd09863ff3bb6bea1))
+
 ## [1.1.6](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.1.5...v1.1.6) (2026-09-13)
 
 
