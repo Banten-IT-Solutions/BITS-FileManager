@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.1.4...v1.1.5) (2026-09-13)
+
+
+### Bug Fixes
+
+* semua button/action jadi icon-only + icon SVG tema-adaptif ([3e8d1b5](https://github.com/Banten-IT-Solutions/BITS-FileManager/commit/3e8d1b59368e7b9881d2dc0a2d1ba2157adde1c8))
+
 ## [1.1.4](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.1.3...v1.1.4) (2026-09-13)
 
 
