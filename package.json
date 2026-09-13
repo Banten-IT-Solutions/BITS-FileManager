@@ -1,6 +1,6 @@
 {
   "name": "luci-app-bitsfilemanager",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": true,
   "description": "Native file manager for LuCI (no PHP, no Go)",
   "repository": {

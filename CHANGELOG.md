@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.1.0...v1.1.1) (2026-09-13)
+
+
+### Bug Fixes
+
+* allow root / in ALLOWED_PATHS (file list kosong) ([030bc76](https://github.com/Banten-IT-Solutions/BITS-FileManager/commit/030bc7626588c8114bacaafb137eb6c06c230328))
+
 # [1.1.0](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.0.0...v1.1.0) (2026-09-13)
 
 
