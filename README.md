@@ -15,14 +15,29 @@ luci-app-bitsfilemanager
 System > BITS File Manager
 ```
 
+## Install
+
+```sh
+# OpenWrt 22.03–24.10 (opkg)
+opkg install luci-app-bitsfilemanager_<version>_all.ipk
+
+# OpenWrt 25.12+ (apk)
+apk add luci-app-bitsfilemanager_<version>_all.apk
+```
+
 ## Build
 
-Release via semantic-release + openwrt/gh-action-sdk:
+SDK-less `.ipk` + `.apk` via `build.sh` + `apk-tools v3` (`apk mkpkg`). Butuh `apk-tools` 3.x di `PATH` (di CI sudah di-cache).
 
-- `.ipk` (OpenWrt 24.10, opkg)
-- `.apk` (OpenWrt 25.12, apk)
+```sh
+./build.sh
+# output: dist/luci-app-bitsfilemanager_<version>_all.ipk
+#         dist/luci-app-bitsfilemanager_<version>_all.apk
+```
 
-Published to the BITS-WRT-Packages feed.
+## Release
+
+semantic-release build `.ipk` + `.apk` → GitHub Release → dispatch ke BITS-WRT-Packages feed.
 
 ## License
 
