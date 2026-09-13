@@ -12,7 +12,7 @@ PKG_DEPENDS=$(awk -F': ' '/^Depends:/{print $2; exit}' "$PKG_NAME/control" | tr 
 PKG_LICENSE=$(awk -F': ' '/^License:/{print $2; exit}' "$PKG_NAME/control")
 
 OUT_IPK="dist/${PKG_NAME}_${PKG_VER}_all.ipk"
-OUT_APK="dist/${PKG_NAME}_${PKG_VER}_all.apk"
+OUT_APK="dist/${PKG_NAME}-${PKG_VER}-r0.apk"
 
 rm -rf .build dist
 mkdir -p .build/root .build/control .build/outer dist
