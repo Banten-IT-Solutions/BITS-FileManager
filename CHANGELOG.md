@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.4.0...v1.4.1) (2026-09-13)
+
+
+### Bug Fixes
+
+* icon Rename jadi tag/label (bukan text-cursor) ([a5f2fbb](https://github.com/Banten-IT-Solutions/BITS-FileManager/commit/a5f2fbbaa3fc1c8afbae165e32502cf978804fff))
+
 # [1.4.0](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.3.0...v1.4.0) (2026-09-13)
 
 
