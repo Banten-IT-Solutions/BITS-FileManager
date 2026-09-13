@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.5.0...v1.5.1) (2026-09-13)
+
+
+### Bug Fixes
+
+* standard apk filename (name-version-r0.apk) for apk feed ([05f2049](https://github.com/Banten-IT-Solutions/BITS-FileManager/commit/05f2049384baf693d3816e0a73b286d9d32dab95))
+
 # [1.5.0](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.4.1...v1.5.0) (2026-09-13)
 
 
