@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.1.5...v1.1.6) (2026-09-13)
+
+
+### Bug Fixes
+
+* open file (double close), upload icon, install icon, parent left-align, menu icon ([675ec86](https://github.com/Banten-IT-Solutions/BITS-FileManager/commit/675ec862a9045d3af2ea2e6f053dd4483c405f8d))
+
 ## [1.1.5](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.1.4...v1.1.5) (2026-09-13)
 
 
