@@ -3,6 +3,7 @@ module("luci.controller.bitsfilemanager", package.seeall)
 require("nixio.fs")
 
 local ALLOWED_PATHS = {
+    "/",
     "/mnt",
     "/etc",
     "/root",
@@ -60,7 +61,7 @@ function is_path_allowed(path)
         return false
     end
     for _, allowed in ipairs(ALLOWED_PATHS) do
-        if realpath:find("^" .. allowed) or realpath == allowed then
+        if realpath == allowed or realpath:find("^" .. allowed .. "/") then
             return true, realpath
         end
     end
