@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.0.0...v1.1.0) (2026-09-13)
+
+
+### Bug Fixes
+
+* prepare.js manual bump (toleran version-not-changed) ([feb6065](https://github.com/Banten-IT-Solutions/BITS-FileManager/commit/feb6065379a0dcc82e5e96c8a61fcbc203e80b77))
+
+
+### Features
+
+* build .ipk + .apk tanpa SDK via apk-tools v3 ([1697db6](https://github.com/Banten-IT-Solutions/BITS-FileManager/commit/1697db6189a5827bf0dd00f180d7178d2596b147))
+
 # 1.0.0 (2026-09-13)
 
 
