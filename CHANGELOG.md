@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.2.3...v1.3.0) (2026-09-13)
+
+
+### Features
+
+* tombol Edit (pencil) terpisah dari Rename (text-cursor) ([f26fa3e](https://github.com/Banten-IT-Solutions/BITS-FileManager/commit/f26fa3e2b1601036a74d7066bc997933106bd45d))
+
 ## [1.2.3](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.2.2...v1.2.3) (2026-09-13)
 
 
