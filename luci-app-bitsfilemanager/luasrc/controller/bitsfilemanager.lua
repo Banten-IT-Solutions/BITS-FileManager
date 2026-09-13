@@ -28,6 +28,8 @@ function index()
     -- API routes must be registered in both old and new versions (fb.js AJAX requests depend on these routes)
     entry({"admin", "system", "bitsfilemanager", "list"}, call("bitsfilemanager_list"), nil)
     entry({"admin", "system", "bitsfilemanager", "open"}, call("bitsfilemanager_open"), nil)
+    entry({"admin", "system", "bitsfilemanager", "read"}, call("bitsfilemanager_read"), nil)
+    entry({"admin", "system", "bitsfilemanager", "save"}, call("bitsfilemanager_save"), nil)
     entry({"admin", "system", "bitsfilemanager", "delete"}, call("bitsfilemanager_delete"), nil)
     entry({"admin", "system", "bitsfilemanager", "rename"}, call("bitsfilemanager_rename"), nil)
     entry({"admin", "system", "bitsfilemanager", "upload"}, call("bitsfilemanager_upload"), nil)
@@ -122,6 +124,55 @@ function bitsfilemanager_open()
     luci.http.prepare_content(mime)
     luci.ltn12.pump.all(luci.ltn12.source.file(fp), luci.http.write)
     -- fp sudah ditutup oleh luci.ltn12.source.file saat EOF
+end
+
+function bitsfilemanager_read()
+    local path = sanitize_path(luci.http.formvalue("path")) or "/"
+    local filename = luci.http.formvalue("filename") or ""
+    local allowed, realpath = is_path_allowed(path)
+    luci.http.prepare_content("application/json")
+    if not allowed then
+        luci.http.write_json({ ec = 1, error = "Path not allowed" })
+        return
+    end
+    if filename == "" or filename:match("[\\/]") then
+        luci.http.write_json({ ec = 1, error = "Invalid filename" })
+        return
+    end
+    local filepath = realpath .. "/" .. filename
+    local fp = io.open(filepath, "r")
+    if not fp then
+        luci.http.write_json({ ec = 1, error = "Cannot open file" })
+        return
+    end
+    local content = fp:read("*a") or ""
+    fp:close()
+    luci.http.write_json({ ec = 0, data = { filename = filename, content = content } })
+end
+
+function bitsfilemanager_save()
+    local path = sanitize_path(luci.http.formvalue("path")) or "/"
+    local filename = luci.http.formvalue("filename") or ""
+    local content = luci.http.formvalue("content") or ""
+    local allowed, realpath = is_path_allowed(path)
+    luci.http.prepare_content("application/json")
+    if not allowed then
+        luci.http.write_json({ ec = 1, error = "Path not allowed" })
+        return
+    end
+    if filename == "" or filename:match("[\\/]") then
+        luci.http.write_json({ ec = 1, error = "Invalid filename" })
+        return
+    end
+    local filepath = realpath .. "/" .. filename
+    local fp = io.open(filepath, "w")
+    if not fp then
+        luci.http.write_json({ ec = 1, error = "Cannot write file" })
+        return
+    end
+    fp:write(content)
+    fp:close()
+    luci.http.write_json({ ec = 0 })
 end
 
 function bitsfilemanager_delete()

@@ -21,4 +21,18 @@
 
 <script src="/luci-static/resources/bitsfilemanager/fb.js?v=@ver"></script>
 
+<div id="edit-modal" class="fb-modal">
+  <div class="fb-modal-box">
+    <div class="fb-modal-head">
+      <span id="edit-title">Edit</span>
+      <button id="edit-close" class="fb-iconbtn" type="button" title="Close">&times;</button>
+    </div>
+    <textarea id="edit-textarea" class="fb-edit-area" spellcheck="false"></textarea>
+    <div class="fb-modal-foot">
+      <button id="edit-save" class="cbi-button cbi-button-save" type="button">Save</button>
+      <button id="edit-cancel" class="cbi-button cbi-button-neutral" type="button">Cancel</button>
+    </div>
+  </div>
+</div>
+
 <%+footer%>

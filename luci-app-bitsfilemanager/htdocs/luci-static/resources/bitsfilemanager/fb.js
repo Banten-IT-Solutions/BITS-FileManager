@@ -171,7 +171,7 @@
       if (fileClass.indexOf('parent-icon') > -1) {
         update_list(currentPath.replace(/\/[^/]+(\/|$)/, ''));
       } else if (fileClass.indexOf('file-icon') > -1 && row) {
-        openpath(row.dataset.filename);
+        edit_file(row.dataset.filename);
       } else if (fileClass.indexOf('link-icon') > -1) {
         if (row && row.dataset.linktarget) {
           if (row.dataset.isdir === "1") {
@@ -338,6 +338,59 @@
       xhr.send(formData);
     };
   }
+
+  // ===== edit file modal =====
+  var editModal = document.getElementById('edit-modal');
+  var editTextarea = document.getElementById('edit-textarea');
+  var editTitle = document.getElementById('edit-title');
+  var currentEditFilename = '';
+
+  function edit_file(filename) {
+    iwxhr.get('/cgi-bin/luci/admin/system/bitsfilemanager/read', {
+        path: currentPath,
+        filename: filename
+      },
+      function (x, res) {
+        if (res && res.ec === 0) {
+          currentEditFilename = filename;
+          editTitle.textContent = 'Edit: ' + filename;
+          editTextarea.value = res.data.content;
+          if (editModal) editModal.style.display = 'block';
+        } else {
+          alert('Cannot read file: ' + ((res && res.error) || 'unknown error'));
+        }
+      }
+    );
+  }
+
+  function close_edit() {
+    if (editModal) editModal.style.display = 'none';
+    currentEditFilename = '';
+  }
+
+  function save_file() {
+    if (!currentEditFilename) return;
+    iwxhr.post('/cgi-bin/luci/admin/system/bitsfilemanager/save', {
+        path: currentPath,
+        filename: currentEditFilename,
+        content: editTextarea.value
+      },
+      function (x, res) {
+        if (res && res.ec === 0) {
+          close_edit();
+        } else {
+          alert('Save failed: ' + ((res && res.error) || 'unknown error'));
+        }
+      }
+    );
+  }
+
+  var editClose = document.getElementById('edit-close');
+  var editSave = document.getElementById('edit-save');
+  var editCancel = document.getElementById('edit-cancel');
+  if (editClose) editClose.onclick = close_edit;
+  if (editSave) editSave.onclick = save_file;
+  if (editCancel) editCancel.onclick = close_edit;
 
   function init() {
     var initPath = '/';

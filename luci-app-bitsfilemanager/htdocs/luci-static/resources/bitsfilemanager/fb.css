@@ -123,3 +123,69 @@
         display: none;
     }
 }
+
+.fb-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1000;
+}
+
+.fb-modal-box {
+    position: absolute;
+    top: 6%;
+    left: 8%;
+    right: 8%;
+    bottom: 6%;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    color: #333;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.35);
+}
+
+.fb-modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.fb-edit-area {
+    flex: 1;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+    font-family: monospace;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    resize: none;
+    outline: none;
+    color: #333;
+    background: #fefefe;
+}
+
+.fb-modal-foot {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+html[data-darkmode="true"] .fb-modal-box,
+html[data-theme="dark"] .fb-modal-box {
+    background: #1a1a1a;
+    color: #ddd;
+}
+
+html[data-darkmode="true"] .fb-edit-area,
+html[data-theme="dark"] .fb-edit-area {
+    background: #111;
+    color: #ddd;
+    border-color: #444;
+}
