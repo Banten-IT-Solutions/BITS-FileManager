@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.4.1...v1.5.0) (2026-09-13)
+
+
+### Features
+
+* pindah menu ke Services + icon folder terang ([e2fa0cb](https://github.com/Banten-IT-Solutions/BITS-FileManager/commit/e2fa0cb419616561e9bdf808b8ab3e0a1a1ac8d2))
+
 ## [1.4.1](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.4.0...v1.4.1) (2026-09-13)
 
 
