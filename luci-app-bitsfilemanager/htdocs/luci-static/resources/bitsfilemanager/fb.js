@@ -207,9 +207,6 @@
 
   function refresh_list(filenames, path) {
     var listHtml = '<table class="cbi-section-table"><tbody>';
-    if (path !== '/') {
-      listHtml += '<tr class="cbi-section-table-row cbi-rowstyle-2"><td class="parent-icon" colspan="6">' + ICO.up + '<strong>..</strong></td></tr>';
-    }
     if (filenames && filenames.length) {
       for (var i = 0; i < filenames.length; i++) {
         var line = filenames[i];
@@ -354,6 +351,13 @@
       };
 
       xhr.send(formData);
+    };
+  }
+
+  var upBtn = document.getElementById('up-btn');
+  if (upBtn) {
+    upBtn.onclick = function () {
+      update_list(parent_of(currentPath));
     };
   }
 
