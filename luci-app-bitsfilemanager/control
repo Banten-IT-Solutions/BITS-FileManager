@@ -1,0 +1,10 @@
+Package: luci-app-bitsfilemanager
+Version: 1.0.0
+Depends: luci-base, rpcd, rpcd-mod-file, cgi-io, libc
+Section: luci
+Architecture: all
+Maintainer: Banten IT Solutions <support@bits.co.id>
+License: Apache-2.0
+Description: BITS File Manager
+  Native file manager for LuCI (no PHP, no Go). Browse, upload, download,
+  edit, rename, move, search and delete files on the router.

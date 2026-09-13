@@ -1,0 +1,16 @@
+{
+	"luci-app-bitsfilemanager": {
+		"description": "Grant file access permissions for luci-app-bitsfilemanager",
+		"read": {
+			"ubus": {
+				"file": ["list", "read"]
+			}
+		},
+		"write": {
+			"ubus": {
+				"file": ["write", "remove"]
+			},
+			"cgi-io": ["upload"]
+		}
+	}
+}

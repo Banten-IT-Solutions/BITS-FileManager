@@ -1,0 +1,13 @@
+{
+	"admin/system/bitsfilemanager": {
+		"title": "BITS File Manager",
+		"order": 99,
+		"action": {
+			"type": "template",
+			"path": "bitsfilemanager"
+		},
+		"depends": {
+			"acl": [ "luci-app-bitsfilemanager" ]
+		}
+	}
+}
