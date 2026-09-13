@@ -122,14 +122,19 @@
   }
 
   function getFileElem(elem) {
+    var cls, pcls;
     if (!elem) {
       return null;
     }
-    if (elem.className && elem.className.indexOf('-icon') > -1) {
+    cls = elem.getAttribute ? elem.getAttribute('class') : '';
+    if (cls && cls.indexOf('-icon') > -1) {
       return elem;
     }
-    if (elem.parentNode && elem.parentNode.className && elem.parentNode.className.indexOf('-icon') > -1) {
-      return elem.parentNode;
+    if (elem.parentNode) {
+      pcls = elem.parentNode.getAttribute ? elem.parentNode.getAttribute('class') : '';
+      if (pcls && pcls.indexOf('-icon') > -1) {
+        return elem.parentNode;
+      }
     }
     return null;
   }
@@ -139,6 +144,15 @@
       return path + filename;
     }
     return path.replace(/\/$/, '') + '/' + filename;
+  }
+
+  function parent_of(path) {
+    var p = String(path || '/').replace(/\/+$/, '');
+    if (p === '' || p === '/') {
+      return '/';
+    }
+    var idx = p.lastIndexOf('/');
+    return idx <= 0 ? '/' : p.substring(0, idx);
   }
 
   function handleClick(evt) {
@@ -169,7 +183,7 @@
       var fileClass = fileElem.className || '';
       row = fileElem.closest('tr');
       if (fileClass.indexOf('parent-icon') > -1) {
-        update_list(currentPath.replace(/\/[^/]+(\/|$)/, ''));
+        update_list(parent_of(currentPath));
       } else if (fileClass.indexOf('file-icon') > -1 && row) {
         edit_file(row.dataset.filename);
       } else if (fileClass.indexOf('link-icon') > -1) {
