@@ -1,0 +1,11 @@
+#!/bin/sh
+# postinst luci-app-bitsfilemanager
+# Bersihkan cache LuCI + reload rpcd agar controller/views baru termuat
+# setelah install/upgrade (menghindari stale cache).
+
+[ -z "$IPKG_INSTROOT" ] && {
+	rm -rf /tmp/luci-indexcache /tmp/luci-modulecache /tmp/luci-* /tmp/.uci
+	/etc/init.d/rpcd reload >/dev/null 2>&1
+}
+
+exit 0
