@@ -16,24 +16,24 @@ local MAX_UPLOAD_SIZE = 500 * 1024 * 1024
 function index()
     -- luci 23.05+ already registers the menu via menu.d JSON; no need to register menu items again
     if not nixio.fs.access("/usr/share/luci/menu.d/luci-app-bitsfilemanager.json") then
-        entry({"admin", "system"}, firstchild(), _("System"), 44).dependent = false
+        entry({"admin", "services"}, firstchild(), _("Services"), 40).dependent = false
 
         local page
-        page = entry({"admin", "system", "bitsfilemanager"}, template("bitsfilemanager"), _("BITS File Manager"), 1)
+        page = entry({"admin", "services", "bitsfilemanager"}, template("bitsfilemanager"), _("BITS File Manager"), 1)
         page.i18n = "base"
         page.dependent = true
         page.acl_depends = { "luci-app-bitsfilemanager" }
     end
 
     -- API routes must be registered in both old and new versions (fb.js AJAX requests depend on these routes)
-    entry({"admin", "system", "bitsfilemanager", "list"}, call("bitsfilemanager_list"), nil)
-    entry({"admin", "system", "bitsfilemanager", "open"}, call("bitsfilemanager_open"), nil)
-    entry({"admin", "system", "bitsfilemanager", "read"}, call("bitsfilemanager_read"), nil)
-    entry({"admin", "system", "bitsfilemanager", "save"}, call("bitsfilemanager_save"), nil)
-    entry({"admin", "system", "bitsfilemanager", "delete"}, call("bitsfilemanager_delete"), nil)
-    entry({"admin", "system", "bitsfilemanager", "rename"}, call("bitsfilemanager_rename"), nil)
-    entry({"admin", "system", "bitsfilemanager", "upload"}, call("bitsfilemanager_upload"), nil)
-    entry({"admin", "system", "bitsfilemanager", "install"}, call("bitsfilemanager_install"), nil)
+    entry({"admin", "services", "bitsfilemanager", "list"}, call("bitsfilemanager_list"), nil)
+    entry({"admin", "services", "bitsfilemanager", "open"}, call("bitsfilemanager_open"), nil)
+    entry({"admin", "services", "bitsfilemanager", "read"}, call("bitsfilemanager_read"), nil)
+    entry({"admin", "services", "bitsfilemanager", "save"}, call("bitsfilemanager_save"), nil)
+    entry({"admin", "services", "bitsfilemanager", "delete"}, call("bitsfilemanager_delete"), nil)
+    entry({"admin", "services", "bitsfilemanager", "rename"}, call("bitsfilemanager_rename"), nil)
+    entry({"admin", "services", "bitsfilemanager", "upload"}, call("bitsfilemanager_upload"), nil)
+    entry({"admin", "services", "bitsfilemanager", "install"}, call("bitsfilemanager_install"), nil)
 end
 
 function list_response(path, success, error_msg)

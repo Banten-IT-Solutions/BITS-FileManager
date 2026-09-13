@@ -43,7 +43,7 @@
   function removePath(filename, isdir) {
     var msg = isdir === "1" ? 'Delete directory? ' : 'Delete file? ';
     if (confirm(msg + escapeHtml(filename) + '?')) {
-      iwxhr.get('/cgi-bin/luci/admin/system/bitsfilemanager/delete', {
+      iwxhr.get('/cgi-bin/luci/admin/services/bitsfilemanager/delete', {
           path: concatPath(currentPath, filename),
           isdir: isdir
         },
@@ -68,7 +68,7 @@
       return;
     }
     if (confirm('Install ' + escapeHtml(filename) + '?')) {
-      iwxhr.get('/cgi-bin/luci/admin/system/bitsfilemanager/install', {
+      iwxhr.get('/cgi-bin/luci/admin/services/bitsfilemanager/install', {
           filepath: concatPath(currentPath, filename),
           isdir: isdir
         },
@@ -99,7 +99,7 @@
           return;
         }
         var newpath = concatPath(currentPath, newname);
-        iwxhr.get('/cgi-bin/luci/admin/system/bitsfilemanager/rename', {
+        iwxhr.get('/cgi-bin/luci/admin/services/bitsfilemanager/rename', {
             filepath: concatPath(currentPath, filename),
             newpath: newpath
           },
@@ -117,7 +117,7 @@
 
   function openpath(filename, dirname) {
     dirname = dirname || currentPath;
-    window.open('/cgi-bin/luci/admin/system/bitsfilemanager/open?path='
+    window.open('/cgi-bin/luci/admin/services/bitsfilemanager/open?path='
       + encodeURIComponent(dirname) + '&filename='
       + encodeURIComponent(filename));
   }
@@ -265,7 +265,7 @@
     opt = opt || {};
     path = concatPath(path, '');
     if (currentPath !== path) {
-      iwxhr.get('/cgi-bin/luci/admin/system/bitsfilemanager/list', {
+      iwxhr.get('/cgi-bin/luci/admin/services/bitsfilemanager/list', {
           path: path
         },
         function (x, res) {
@@ -319,7 +319,7 @@
       formData.append('upload-file', file);
 
       var xhr = new XMLHttpRequest();
-      xhr.open('POST', '/cgi-bin/luci/admin/system/bitsfilemanager/upload', true);
+      xhr.open('POST', '/cgi-bin/luci/admin/services/bitsfilemanager/upload', true);
 
       xhr.upload.onprogress = function (e) {
         if (e.lengthComputable) {
@@ -368,7 +368,7 @@
   var currentEditFilename = '';
 
   function edit_file(filename) {
-    iwxhr.get('/cgi-bin/luci/admin/system/bitsfilemanager/read', {
+    iwxhr.get('/cgi-bin/luci/admin/services/bitsfilemanager/read', {
         path: currentPath,
         filename: filename
       },
@@ -392,7 +392,7 @@
 
   function save_file() {
     if (!currentEditFilename) return;
-    iwxhr.post('/cgi-bin/luci/admin/system/bitsfilemanager/save', {
+    iwxhr.post('/cgi-bin/luci/admin/services/bitsfilemanager/save', {
         path: currentPath,
         filename: currentEditFilename,
         content: editTextarea.value
