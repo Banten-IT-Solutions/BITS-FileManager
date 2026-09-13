@@ -55,29 +55,12 @@
     position: relative;
 }
 
-.fb-container .file-icon:before,
-.fb-container .folder-icon:before,
-.fb-container .link-icon:before {
+.fb-container .fb-ficon {
     display: inline-block;
     width: 1.5rem;
     height: 1.5rem;
-    content: '';
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin: 0 0.5rem 0 1rem;
+    margin-right: 0.5rem;
     vertical-align: middle;
-}
-
-.fb-container .file-icon:before {
-    background-image: url(/luci-static/resources/bitsfilemanager/file-icon.png);
-}
-
-.fb-container .folder-icon:before {
-    background-image: url(/luci-static/resources/bitsfilemanager/folder-icon.png);
-}
-
-.fb-container .link-icon:before {
-    background-image: url(/luci-static/resources/bitsfilemanager/link-icon.png);
 }
 
 .fb-container .parent-icon:before {

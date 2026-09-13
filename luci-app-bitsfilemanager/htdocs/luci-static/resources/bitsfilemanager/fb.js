@@ -136,46 +136,44 @@
     if (!targetElem) {
       return;
     }
-    var targetClass = targetElem.className || '';
-    var infoElem;
+    var actionBtn = targetElem.closest ? targetElem.closest('[data-action]') : null;
+    var infoElem, row;
 
-    if (targetClass.indexOf('cbi-button-remove') > -1) {
-      infoElem = targetElem.closest('tr');
+    if (actionBtn) {
+      var action = actionBtn.getAttribute('data-action');
+      infoElem = actionBtn.closest('tr');
       if (infoElem) {
-        removePath(infoElem.dataset.filename, infoElem.dataset.isdir);
-      }
-    } else if (targetClass.indexOf('cbi-button-install') > -1) {
-      infoElem = targetElem.closest('tr');
-      if (infoElem) {
-        installPath(infoElem.dataset.filename, infoElem.dataset.isdir);
-      }
-    } else if (targetClass.indexOf('cbi-button-edit') > -1) {
-      infoElem = targetElem.closest('tr');
-      if (infoElem) {
-        renamePath(infoElem.dataset.filename);
-      }
-    } else {
-      var fileElem = getFileElem(targetElem);
-      if (fileElem) {
-        var fileClass = fileElem.className || '';
-        var row = fileElem.closest('tr');
-        if (fileClass.indexOf('parent-icon') > -1) {
-          update_list(currentPath.replace(/\/[^/]+(\/|$)/, ''));
-        } else if (fileClass.indexOf('file-icon') > -1 && row) {
-          openpath(row.dataset.filename);
-        } else if (fileClass.indexOf('link-icon') > -1) {
-          if (row && row.dataset.linktarget) {
-            if (row.dataset.isdir === "1") {
-              update_list(row.dataset.linktarget);
-            } else {
-              var target = row.dataset.linktarget;
-              var lastSlash = target.lastIndexOf('/');
-              openpath(target.substring(lastSlash + 1), target.substring(0, lastSlash || 1));
-            }
-          }
-        } else if (fileClass.indexOf('folder-icon') > -1 && row) {
-          update_list(concatPath(currentPath, row.dataset.filename));
+        if (action === 'delete') {
+          removePath(infoElem.dataset.filename, infoElem.dataset.isdir);
+        } else if (action === 'install') {
+          installPath(infoElem.dataset.filename, infoElem.dataset.isdir);
+        } else if (action === 'rename') {
+          renamePath(infoElem.dataset.filename);
         }
+      }
+      return;
+    }
+
+    var fileElem = getFileElem(targetElem);
+    if (fileElem) {
+      var fileClass = fileElem.className || '';
+      row = fileElem.closest('tr');
+      if (fileClass.indexOf('parent-icon') > -1) {
+        update_list(currentPath.replace(/\/[^/]+(\/|$)/, ''));
+      } else if (fileClass.indexOf('file-icon') > -1 && row) {
+        openpath(row.dataset.filename);
+      } else if (fileClass.indexOf('link-icon') > -1) {
+        if (row && row.dataset.linktarget) {
+          if (row.dataset.isdir === "1") {
+            update_list(row.dataset.linktarget);
+          } else {
+            var target = row.dataset.linktarget;
+            var lastSlash = target.lastIndexOf('/');
+            openpath(target.substring(lastSlash + 1), target.substring(0, lastSlash || 1));
+          }
+        }
+      } else if (fileClass.indexOf('folder-icon') > -1 && row) {
+        update_list(concatPath(currentPath, row.dataset.filename));
       }
     }
   }
@@ -213,21 +211,21 @@
           var icon = (perm[0] === 'd') ? 'folder-icon' : (isLink ? 'link-icon' : 'file-icon');
           var installBtn = '';
           if (filename.slice(filename.lastIndexOf('.') + 1).toLowerCase() === 'ipk') {
-            installBtn = '<button class="cbi-button cbi-button-add">Install</button>';
+            installBtn = '<button class="cbi-button cbi-button-neutral" data-action="install">Install</button>';
           }
           listHtml += '<tr class="cbi-section-table-row cbi-rowstyle-' + (1 + i % 2) + '"'
             + ' data-filename="' + escapeHtml(filename) + '"'
             + ' data-isdir="' + (perm[0] === 'd' ? 1 : 0) + '"'
             + (linktarget ? ' data-linktarget="' + escapeHtml(linktarget) + '"' : '')
             + '>'
-            + '<td class="cbi-value-field ' + icon + '"><strong>' + displayname + '</strong></td>'
+            + '<td class="cbi-value-field ' + icon + '"><img src="/luci-static/resources/bitsfilemanager/' + icon + '.png" alt="" class="fb-ficon" /><strong>' + displayname + '</strong></td>'
             + '<td class="cbi-value-field cbi-value-owner">' + escapeHtml(owner) + '</td>'
             + '<td class="cbi-value-field cbi-value-date">' + escapeHtml(date) + '</td>'
             + '<td class="cbi-value-field cbi-value-size">' + escapeHtml(size) + '</td>'
             + '<td class="cbi-value-field cbi-value-perm">' + escapeHtml(perm) + '</td>'
             + '<td class="cbi-section-table-cell">'
-            + '<button class="cbi-button cbi-button-edit">Rename</button>'
-            + '<button class="cbi-button cbi-button-remove">Delete</button>'
+            + '<button class="cbi-button cbi-button-neutral" data-action="rename">Rename</button>'
+            + '<button class="cbi-button cbi-button-neutral" data-action="delete">Delete</button>'
             + installBtn
             + '</td>'
             + '</tr>';
