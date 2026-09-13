@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.2.0...v1.2.1) (2026-09-13)
+
+
+### Bug Fixes
+
+* modal edit sebelum script (editTitle null) ([bc16fb4](https://github.com/Banten-IT-Solutions/BITS-FileManager/commit/bc16fb43d1cbfc9ca37c4f68bba6ef2e83fb7ffa))
+
 # [1.2.0](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.1.6...v1.2.0) (2026-09-13)
 
 
