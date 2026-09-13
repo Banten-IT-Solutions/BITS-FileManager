@@ -41,8 +41,13 @@
     text-align: left;
 }
 
+.fb-container .parent-icon {
+    text-align: left !important;
+}
+
 .fb-container .parent-icon strong {
     margin-left: 0.3rem;
+    vertical-align: middle;
 }
 
 .fb-container td[class$="-icon"] {

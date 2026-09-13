@@ -121,7 +121,7 @@ function bitsfilemanager_open()
     luci.http.header('Content-Disposition', 'inline; filename="' .. filename .. '"')
     luci.http.prepare_content(mime)
     luci.ltn12.pump.all(luci.ltn12.source.file(fp), luci.http.write)
-    fp:close()
+    -- fp sudah ditutup oleh luci.ltn12.source.file saat EOF
 end
 
 function bitsfilemanager_delete()

@@ -1,6 +1,7 @@
 {
 	"admin/system/bitsfilemanager": {
 		"title": "BITS File Manager",
+		"icon": "bitsfilemanager/menu.svg",
 		"order": 99,
 		"action": {
 			"type": "template",
