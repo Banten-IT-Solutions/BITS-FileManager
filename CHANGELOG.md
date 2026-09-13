@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.2.1...v1.2.2) (2026-09-13)
+
+
+### Bug Fixes
+
+* z-index modal di atas sidebar ([35af240](https://github.com/Banten-IT-Solutions/BITS-FileManager/commit/35af24052884fcdef5a3c894bbcf9aac505ef736))
+
 ## [1.2.1](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.2.0...v1.2.1) (2026-09-13)
 
 
