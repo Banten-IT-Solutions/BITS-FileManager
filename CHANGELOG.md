@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.1.3...v1.1.4) (2026-09-13)
+
+
+### Bug Fixes
+
+* icon via img + tombol text label (bukan icon-only) ([ad6dd69](https://github.com/Banten-IT-Solutions/BITS-FileManager/commit/ad6dd69eb40cd634a389539566d66a1a001f7335))
+
 ## [1.1.3](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.1.2...v1.1.3) (2026-09-13)
 
 
