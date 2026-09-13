@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.1.2...v1.1.3) (2026-09-13)
+
+
+### Bug Fixes
+
+* nixio.fs.dir returns iterator (no :close) — 500 on list ([6c6aaac](https://github.com/Banten-IT-Solutions/BITS-FileManager/commit/6c6aaacfdb1fbbbe26fa3331f21d195857f14fbd))
+
 ## [1.1.2](https://github.com/Banten-IT-Solutions/BITS-FileManager/compare/v1.1.1...v1.1.2) (2026-09-13)
 
 
